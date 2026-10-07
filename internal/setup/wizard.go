@@ -238,7 +238,7 @@ func run(ctx context.Context, p *Prompter, opts Options) error {
 	// --- Discord ---
 	p.Header("Discord")
 	if cfg.Discord.ClientID == "" {
-		cfg.Discord.ClientID = discord.DefaultClientID
+		cfg.Discord.ClientID = config.DefaultClientID
 	}
 	if cfg.Discord.ClientID == "" {
 		p.Info("Create an application at https://discord.com/developers/applications (name it e.g. \"Jellyfin\")")

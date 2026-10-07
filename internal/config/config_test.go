@@ -29,6 +29,7 @@ func TestDefaultsValidate(t *testing.T) {
 
 func TestValidateErrors(t *testing.T) {
 	c := Default()
+	c.Discord.ClientID = ""
 	c.Behavior.Paused = "nope"
 	c.Behavior.MediaTypes = []string{"podcast"}
 	c.Templates.Movie.Buttons = make([]Button, 3)

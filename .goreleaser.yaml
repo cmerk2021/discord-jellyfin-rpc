@@ -18,7 +18,6 @@ builds:
       - -X github.com/cmerk2021/discord-jellyfin-rpc/internal/version.Version={{.Version}}
       - -X github.com/cmerk2021/discord-jellyfin-rpc/internal/version.Commit={{.ShortCommit}}
       - -X github.com/cmerk2021/discord-jellyfin-rpc/internal/version.Date={{.Date}}
-      - -X github.com/cmerk2021/discord-jellyfin-rpc/internal/discord.DefaultClientID={{ envOrDefault "DISCORD_CLIENT_ID" "" }}
     goos: [linux, darwin]
     goarch: [amd64, arm64, arm]
     goarm: ["7"]

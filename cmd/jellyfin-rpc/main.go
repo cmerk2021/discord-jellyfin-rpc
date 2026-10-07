@@ -251,7 +251,7 @@ func cmdConfig(cfgPath string, args []string) error {
 		cfg := config.Default()
 		cfg.Jellyfin.URL = "http://192.168.1.10:8096"
 		cfg.Jellyfin.PublicURL = "https://jellyfin.example.com"
-		cfg.Discord.ClientID = discord.DefaultClientID
+		cfg.Discord.ClientID = config.DefaultClientID
 		b, err := cfg.Render()
 		if err != nil {
 			return err

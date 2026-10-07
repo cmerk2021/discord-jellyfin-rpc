@@ -159,12 +159,17 @@ func (t *Templates) For(media string) *Template {
 }
 
 // Default returns a config populated with defaults.
+// DefaultClientID is the project's Discord application ("Jellyfin"), used unless
+// discord.client_id is set.
+const DefaultClientID = "1543758019488387124"
+
 func Default() *Config {
 	return &Config{
 		Jellyfin: Jellyfin{
 			AuthMethod: AuthPassword,
 			Timeout:    D(10 * time.Second),
 		},
+		Discord: Discord{ClientID: DefaultClientID},
 		Behavior: Behavior{
 			PollInterval:      D(5 * time.Second),
 			IdlePollInterval:  D(15 * time.Second),

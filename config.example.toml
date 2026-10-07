@@ -30,7 +30,7 @@ ignore_libraries = []
 
 [discord]
 # Discord application ID. The activity's app name is only shown when status_display = "name".
-client_id = ""
+client_id = "1543758019488387124"
 
 [behavior]
 # How often to poll Jellyfin while something is playing / while idle.

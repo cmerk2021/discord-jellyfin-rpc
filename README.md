@@ -133,7 +133,7 @@ state = "{{.SeasonName}} · Episode {{.Episode}} ({{percent .Position .Runtime}}
 
 ## Using your own Discord app
 
-Release builds include a default Discord application ID. To use your own name or icons:
+jellyfin-rpc ships with a default Discord application (`1543758019488387124`). To use your own name or icons:
 
 1. Create an application at <https://discord.com/developers/applications>. Its name is what `status_display = "name"` shows.
 2. Under **Rich Presence → Art Assets**, upload images named `jellyfin` (the fallback cover), `play`, and `pause`.
@@ -179,7 +179,7 @@ docker run -d -p 8096:8096 jellyfin/jellyfin    # then:
 JELLYFIN_TEST_URL=http://127.0.0.1:8096 go test -tags integration ./internal/jellyfin/
 ```
 
-To publish a release, push a `v*` tag. GoReleaser builds static binaries for Linux (amd64/arm64/armv7) and macOS (amd64/arm64). Set the `DISCORD_CLIENT_ID` repository variable to bake in the default application ID.
+To publish a release, push a `v*` tag. GoReleaser builds static binaries for Linux (amd64/arm64/armv7) and macOS (amd64/arm64).
 
 ## License
 

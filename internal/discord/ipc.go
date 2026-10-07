@@ -17,10 +17,6 @@ import (
 	"time"
 )
 
-// DefaultClientID is the project's Discord application ID. It is injected at build time with
-// -ldflags "-X github.com/cmerk2021/discord-jellyfin-rpc/internal/discord.DefaultClientID=<id>".
-var DefaultClientID = ""
-
 const (
 	opHandshake = 0
 	opFrame     = 1
