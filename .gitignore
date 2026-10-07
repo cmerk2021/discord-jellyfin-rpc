@@ -1,0 +1,4 @@
+/jellyfin-rpc
+/dist/
+*.test
+*.out

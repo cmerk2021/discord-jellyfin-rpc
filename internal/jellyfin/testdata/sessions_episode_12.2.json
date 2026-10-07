@@ -1,0 +1,150 @@
+[
+ {
+  "PlayState": {
+   "PositionTicks": 1600000000,
+   "CanSeek": false,
+   "IsPaused": false,
+   "IsMuted": false,
+   "MediaSourceId": "4e84efc6eabb1cea2d14cb264672030c",
+   "PlayMethod": "DirectPlay",
+   "RepeatMode": "RepeatNone",
+   "PlaybackOrder": "Default"
+  },
+  "AdditionalUsers": [],
+  "RemoteEndPoint": "172.21.1.204",
+  "PlayableMediaTypes": [],
+  "Id": "f8486cf2729b3ac32dfe0ef74ef4a468",
+  "UserId": "069cb963513948c7b69ab55fe29ce1a5",
+  "UserName": "tester",
+  "Client": "Jellyfin Web",
+  "LastActivityDate": "2026-10-07T22:43:49.4522019Z",
+  "LastPlaybackCheckIn": "2026-10-07T22:43:49.4522026Z",
+  "DeviceName": "Firefox",
+  "NowPlayingItem": {
+   "Name": "The Roundup",
+   "ServerId": "c5bc269212fc4a87b968f8b4619e78b3",
+   "Id": "4e84efc6eabb1cea2d14cb264672030c",
+   "DateCreated": "2026-10-07T22:41:35.5102414Z",
+   "Container": "mkv",
+   "PremiereDate": "2018-11-20T00:00:00.0000000Z",
+   "Path": "/media/shows/The Rookie (2018)/Season 01/The Rookie (2018) - S01E05 - The Switch.mkv",
+   "EnableMediaSourceDisplay": true,
+   "OfficialRating": "TV-14",
+   "ChannelId": null,
+   "Taglines": [],
+   "Genres": [
+    "Action",
+    "Crime",
+    "Drama"
+   ],
+   "CommunityRating": 7.7,
+   "RunTimeTicks": 6000000000,
+   "ProductionYear": 2018,
+   "IndexNumber": 5,
+   "ParentIndexNumber": 1,
+   "ProviderIds": {
+    "Imdb": "tt8815074",
+    "Tmdb": "1610848",
+    "Tvdb": "6887381"
+   },
+   "IsFolder": false,
+   "ParentId": "08d28f1042c3ab7aaaea6489db73f4db",
+   "Type": "Episode",
+   "Studios": [],
+   "GenreItems": [
+    {
+     "Name": "Action",
+     "Id": "ce06903d834d2c3417e0889dd4049f3b"
+    },
+    {
+     "Name": "Crime",
+     "Id": "83a9dab21914792744c8fb23b9925dc6"
+    },
+    {
+     "Name": "Drama",
+     "Id": "090eac6e9de4fe1fbc194e5b96691277"
+    }
+   ],
+   "ParentLogoItemId": "a34d78e984d2dd682bd170c5be7cf40b",
+   "ParentBackdropItemId": "a34d78e984d2dd682bd170c5be7cf40b",
+   "ParentBackdropImageTags": [
+    "2665c7135cc97d2e8e833ecba4619628"
+   ],
+   "LocalTrailerCount": 0,
+   "SeriesName": "The Rookie",
+   "SeriesId": "a34d78e984d2dd682bd170c5be7cf40b",
+   "SeasonId": "08d28f1042c3ab7aaaea6489db73f4db",
+   "SpecialFeatureCount": 0,
+   "PrimaryImageAspectRatio": 1.7804154302670623,
+   "SeriesPrimaryImageTag": "9ad5b3905e6ad8696f946876db27d165",
+   "SeasonName": "Season 1",
+   "VideoType": "VideoFile",
+   "ImageTags": {
+    "Primary": "a7939df8f7c1be7fb0a475b7b76993e7"
+   },
+   "BackdropImageTags": [],
+   "ParentLogoImageTag": "912454f48b7ab25ca3ee22d0244f12af",
+   "ImageBlurHashes": {
+    "Primary": {
+     "a7939df8f7c1be7fb0a475b7b76993e7": "NLCsN?xG%Nr=XTg4~VR.xt-pt7bwa_R+xtxutRWB",
+     "9ad5b3905e6ad8696f946876db27d165": "dFG[lv^*5@.7*0x^abI@p^E-E8RQLNx[x]aL.Qs.Q.en",
+     "7ebe1515e1ad3607722ef85a74cfbf8c": "dPGI$N%0t3-;*I%MxukVGYyDNHNa.SbFWXt8NyIUxat7"
+    },
+    "Logo": {
+     "912454f48b7ab25ca3ee22d0244f12af": "HMLENU%M%Moft7ofD%xuD%00%M%Mxut7M{WBIUM{"
+    },
+    "Thumb": {
+     "bae20b82a4d9a783890ce1bf140191f2": "WPDKD7OZO@nlf6tlysSPM|%Kt6NdC9ozRltPWXSO%~kCn,NLNIt7"
+    },
+    "Backdrop": {
+     "2665c7135cc97d2e8e833ecba4619628": "WzJi:t-Q-O%1s.R*}-ocs+oKR-WXskbHt6n$Rns:xsf*xYs.WCjZ"
+    }
+   },
+   "SeriesStudio": "ABC",
+   "ParentThumbItemId": "a34d78e984d2dd682bd170c5be7cf40b",
+   "ParentThumbImageTag": "bae20b82a4d9a783890ce1bf140191f2",
+   "ParentPrimaryImageItemId": "08d28f1042c3ab7aaaea6489db73f4db",
+   "ParentPrimaryImageTag": "7ebe1515e1ad3607722ef85a74cfbf8c",
+   "LocationType": "FileSystem",
+   "MediaType": "Video",
+   "Width": 320,
+   "Height": 240,
+   "OriginalLanguage": "en"
+  },
+  "DeviceId": "t1",
+  "ApplicationVersion": "1",
+  "IsActive": true,
+  "SupportsMediaControl": false,
+  "SupportsRemoteControl": false,
+  "HasCustomDeviceName": false,
+  "ServerId": "c5bc269212fc4a87b968f8b4619e78b3",
+  "SupportedCommands": []
+ },
+ {
+  "PlayState": {
+   "CanSeek": false,
+   "IsPaused": false,
+   "IsMuted": false,
+   "RepeatMode": "RepeatNone",
+   "PlaybackOrder": "Default"
+  },
+  "AdditionalUsers": [],
+  "RemoteEndPoint": "172.21.1.204",
+  "PlayableMediaTypes": [],
+  "Id": "9912d35efe65b52061f96d0b59edbf7b",
+  "UserId": "069cb963513948c7b69ab55fe29ce1a5",
+  "UserName": "tester",
+  "Client": "t",
+  "LastActivityDate": "2026-10-07T22:41:35.8475102Z",
+  "LastPlaybackCheckIn": "0001-01-01T00:00:00.0000000Z",
+  "DeviceName": "t",
+  "DeviceId": "t1",
+  "ApplicationVersion": "1",
+  "IsActive": true,
+  "SupportsMediaControl": false,
+  "SupportsRemoteControl": false,
+  "HasCustomDeviceName": false,
+  "ServerId": "c5bc269212fc4a87b968f8b4619e78b3",
+  "SupportedCommands": []
+ }
+]
