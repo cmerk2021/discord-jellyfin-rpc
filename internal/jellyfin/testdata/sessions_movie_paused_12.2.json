@@ -1,0 +1,143 @@
+[
+ {
+  "PlayState": {
+   "PositionTicks": 36000000000,
+   "CanSeek": false,
+   "IsPaused": true,
+   "IsMuted": false,
+   "MediaSourceId": "4e3f963140aa65fc5fd8a514999eb989",
+   "PlayMethod": "DirectPlay",
+   "RepeatMode": "RepeatNone",
+   "PlaybackOrder": "Default"
+  },
+  "AdditionalUsers": [],
+  "RemoteEndPoint": "172.21.1.204",
+  "PlayableMediaTypes": [],
+  "Id": "f8486cf2729b3ac32dfe0ef74ef4a468",
+  "UserId": "069cb963513948c7b69ab55fe29ce1a5",
+  "UserName": "tester",
+  "Client": "Jellyfin Web",
+  "LastActivityDate": "2026-10-07T22:43:49.6326052Z",
+  "LastPlaybackCheckIn": "2026-10-07T22:43:49.6326056Z",
+  "LastPausedDate": "2026-10-07T22:43:49.6326056Z",
+  "DeviceName": "Firefox",
+  "NowPlayingItem": {
+   "Name": "Inception",
+   "OriginalTitle": "Inception",
+   "ServerId": "c5bc269212fc4a87b968f8b4619e78b3",
+   "Id": "4e3f963140aa65fc5fd8a514999eb989",
+   "DateCreated": "2026-10-07T22:41:35.5422409Z",
+   "Container": "mkv",
+   "PremiereDate": "2010-07-15T00:00:00.0000000Z",
+   "CriticRating": 86,
+   "Path": "/media/movies/Inception (2010).mkv",
+   "EnableMediaSourceDisplay": true,
+   "OfficialRating": "PG-13",
+   "ChannelId": null,
+   "Taglines": [
+    "Your mind is the scene of the crime."
+   ],
+   "Genres": [
+    "Action",
+    "Science Fiction",
+    "Adventure"
+   ],
+   "CommunityRating": 8.4,
+   "RunTimeTicks": 6000000000,
+   "ProductionYear": 2010,
+   "ProviderIds": {
+    "Tmdb": "27205",
+    "Imdb": "tt1375666"
+   },
+   "IsFolder": false,
+   "ParentId": "ba9c5cad4ccd875366bf54fd50e04928",
+   "Type": "Movie",
+   "Studios": [
+    {
+     "Name": "Warner Bros. Pictures",
+     "Id": "3fc63208ae63fa64a67db18e32c13476"
+    }
+   ],
+   "GenreItems": [
+    {
+     "Name": "Action",
+     "Id": "ce06903d834d2c3417e0889dd4049f3b"
+    },
+    {
+     "Name": "Science Fiction",
+     "Id": "0430d514c35e1f158fa93f1eeb8361ea"
+    },
+    {
+     "Name": "Adventure",
+     "Id": "51cec9645b896084d12b259acd05ccb1"
+    }
+   ],
+   "LocalTrailerCount": 0,
+   "SpecialFeatureCount": 0,
+   "PrimaryImageAspectRatio": 0.6666666666666666,
+   "VideoType": "VideoFile",
+   "ImageTags": {
+    "Primary": "212f8619cf44b71337ec3e917feb7b42",
+    "Logo": "e9250e06fcd8feac482946036bf3857e",
+    "Thumb": "d8e65e81f1097b6d2fbacb80c9c068e1"
+   },
+   "BackdropImageTags": [
+    "9e336ee82305d2dcbf42d24884b9ccef"
+   ],
+   "ImageBlurHashes": {
+    "Backdrop": {
+     "9e336ee82305d2dcbf42d24884b9ccef": "WHB|yyIv%LS6Myxu_K8{-;M{RQxtsk4o%LNFWBt6?cIW%La$Rjxt"
+    },
+    "Primary": {
+     "212f8619cf44b71337ec3e917feb7b42": "dMAwl3g%9Yn,:%NuJRs9m6M{k=s:;gWUJToL,:axNde."
+    },
+    "Logo": {
+     "e9250e06fcd8feac482946036bf3857e": "HFKq]+wx$PNuwy,swxJka||wWpJRwy$PN[SMsUjt"
+    },
+    "Thumb": {
+     "d8e65e81f1097b6d2fbacb80c9c068e1": "WLBN=;t-8_M{t7M{_NtRITsmWXR*XTogt7ogNIjspJkX%2NHRkay"
+    }
+   },
+   "LocationType": "FileSystem",
+   "MediaType": "Video",
+   "Width": 320,
+   "Height": 240,
+   "OriginalLanguage": "en"
+  },
+  "DeviceId": "t1",
+  "ApplicationVersion": "1",
+  "IsActive": true,
+  "SupportsMediaControl": false,
+  "SupportsRemoteControl": false,
+  "HasCustomDeviceName": false,
+  "ServerId": "c5bc269212fc4a87b968f8b4619e78b3",
+  "SupportedCommands": []
+ },
+ {
+  "PlayState": {
+   "CanSeek": false,
+   "IsPaused": false,
+   "IsMuted": false,
+   "RepeatMode": "RepeatNone",
+   "PlaybackOrder": "Default"
+  },
+  "AdditionalUsers": [],
+  "RemoteEndPoint": "172.21.1.204",
+  "PlayableMediaTypes": [],
+  "Id": "9912d35efe65b52061f96d0b59edbf7b",
+  "UserId": "069cb963513948c7b69ab55fe29ce1a5",
+  "UserName": "tester",
+  "Client": "t",
+  "LastActivityDate": "2026-10-07T22:41:35.8475102Z",
+  "LastPlaybackCheckIn": "0001-01-01T00:00:00.0000000Z",
+  "DeviceName": "t",
+  "DeviceId": "t1",
+  "ApplicationVersion": "1",
+  "IsActive": true,
+  "SupportsMediaControl": false,
+  "SupportsRemoteControl": false,
+  "HasCustomDeviceName": false,
+  "ServerId": "c5bc269212fc4a87b968f8b4619e78b3",
+  "SupportedCommands": []
+ }
+]

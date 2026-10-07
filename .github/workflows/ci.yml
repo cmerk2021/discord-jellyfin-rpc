@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - run: test -z "$(gofmt -l .)" || (gofmt -l . && exit 1)
+      - run: go vet ./...
+      - uses: dominikh/staticcheck-action@v1
+        with:
+          install-go: false
+      - run: go test -race -count=1 ./...
+      - name: Build all targets
+        run: |
+          for t in linux/amd64 linux/arm64 linux/arm darwin/amd64 darwin/arm64; do
+            GOOS=${t%/*} GOARCH=${t#*/} GOARM=7 CGO_ENABLED=0 go build -o /dev/null ./cmd/jellyfin-rpc
+          done
+
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: shellcheck -s sh install.sh
+
+  integration:
+    # Runs the client against a real, freshly started Jellyfin server.
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        jellyfin: ["latest", "10.10.7"]
+    services:
+      jellyfin:
+        image: jellyfin/jellyfin:${{ matrix.jellyfin }}
+        ports: ["8096:8096"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Wait for Jellyfin
+        run: |
+          for i in $(seq 1 60); do
+            curl -fsS http://127.0.0.1:8096/System/Info/Public && exit 0
+            sleep 2
+          done
+          exit 1
+      - run: go test -count=1 -v -tags integration ./internal/jellyfin/
+        env:
+          JELLYFIN_TEST_URL: http://127.0.0.1:8096

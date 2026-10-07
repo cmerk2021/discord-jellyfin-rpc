@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+version: 2
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: jellyfin-rpc
+    main: ./cmd/jellyfin-rpc
+    binary: jellyfin-rpc
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w
+      - -X github.com/cmerk2021/discord-jellyfin-rpc/internal/version.Version={{.Version}}
+      - -X github.com/cmerk2021/discord-jellyfin-rpc/internal/version.Commit={{.ShortCommit}}
+      - -X github.com/cmerk2021/discord-jellyfin-rpc/internal/version.Date={{.Date}}
+    goos: [linux, darwin]
+    goarch: [amd64, arm64, arm]
+    goarm: ["7"]
+    ignore:
+      - goos: darwin
+        goarch: arm
+
+archives:
+  - formats: [tar.gz]
+    # Versionless names so install.sh can use releases/latest/download/<name>.
+    name_template: "jellyfin-rpc_{{ .Os }}_{{ .Arch }}{{ with .Arm }}v{{ . }}{{ end }}"
+    files:
+      - README.md
+      - LICENSE
+      - install.sh
+
+checksum:
+  name_template: checksums.txt
+  algorithm: sha256
+
+changelog:
+  sort: asc
+  filters:
+    exclude: ["^docs:", "^test:", "^ci:"]

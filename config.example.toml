@@ -1,0 +1,160 @@
+# jellyfin-rpc configuration
+# Docs: https://github.com/cmerk2021/discord-jellyfin-rpc#configuration
+# Reload a running instance with: systemctl --user reload jellyfin-rpc (or restart it)
+
+[jellyfin]
+# Address jellyfin-rpc uses to talk to your server (LAN address is fine).
+url = "http://192.168.1.10:8096"
+# Address Discord uses to download cover art. Must be reachable from the internet.
+# Leave empty to disable cover art and use the [images] fallback asset instead.
+public_url = "https://jellyfin.example.com"
+# "password" (token obtained by logging in during setup) or "apikey" (admin-created API key).
+auth_method = "password"
+api_key = ""
+token = ""
+# Whose playback to show. user_id takes precedence over username.
+user_id = ""
+username = ""
+# Stable identifier sent to Jellyfin; don't change it unless you want a new device entry.
+device_id = ""
+timeout = "10s"
+insecure_skip_verify = false
+# Only show sessions from these client names (e.g. "Jellyfin Web", "Jellyfin Media Player"). Empty = all.
+clients = []
+# Only show sessions from these device names. Empty = all.
+devices = []
+# Never show sessions from these client names.
+ignore_clients = []
+# Never show items from these libraries (by library name).
+ignore_libraries = []
+
+[discord]
+# Discord application ID. The activity's app name is only shown when status_display = "name".
+client_id = "1543758019488387124"
+
+[behavior]
+# How often to poll Jellyfin while something is playing / while idle.
+poll_interval = "5s"
+idle_poll_interval = "15s"
+# Upper bound for retry backoff when Jellyfin or Discord is unreachable.
+max_backoff = "1m0s"
+# Minimum time between presence updates (Discord rate-limits activity updates).
+min_update_interval = "4s"
+# Re-sync the progress bar if the position drifts by more than this (e.g. after seeking).
+seek_threshold = "10s"
+# What to do when playback is paused: "clear" the presence or "show" it without a progress bar.
+paused = "clear"
+# Media types to show: episode, movie, audio, musicvideo, livetv, other
+media_types = ["episode", "movie", "audio", "musicvideo", "livetv"]
+# Show the progress bar / elapsed time.
+show_timestamps = true
+
+[images]
+# Use Jellyfin artwork (requires jellyfin.public_url).
+enabled = true
+# Artwork used for episodes: "series", "season" or "episode".
+episode_source = "series"
+max_height = 512
+# Discord asset key (uploaded to your Discord application) or URL used when artwork is unavailable.
+fallback = "jellyfin"
+# Show a small play/pause icon (asset keys must exist in your Discord application).
+play_state_icons = false
+play_icon = "play"
+pause_icon = "pause"
+
+[log]
+level = "info"   # debug, info, warn, error
+format = "text" # text, json
+
+# ---------------------------------------------------------------------------
+# Templates (Go text/template syntax: https://pkg.go.dev/text/template)
+#
+# activity_type:  playing | listening | watching | competing
+# status_display: what your status line shows, e.g. "Watching <x>":
+#                 "name" (app name), "details" or "state"
+# details/state:  first/second line. Empty result = line hidden.
+# buttons:        up to 2 {label, url}; a button is skipped when its url renders empty.
+#
+# Available fields: .Type .MediaType .Name .OriginalTitle .SeriesName .SeasonName .Season
+#   .Episode .EpisodeEnd .HasSeason .HasEpisode .Year .Album .Artist .Artists .AlbumArtist
+#   .Genres .Studios .OfficialRating .CommunityRating .Paused .Position .Runtime
+#   .Providers .ItemID .SeriesID .User .Client .Device .ServerURL .WebURL
+# Functions: epcode pad pad3 provider join limit default trunc upper lower title
+#   duration (e.g. {{duration .Position}}) percent
+# ---------------------------------------------------------------------------
+
+[templates.episode]
+activity_type = "watching"
+status_display = "details"
+details = "{{.SeriesName}}"
+details_url = ""
+state = "{{with epcode .}}{{.}} · {{end}}{{.Name}}"
+state_url = ""
+large_text = "{{.SeriesName}}{{with .SeasonName}} · {{.}}{{end}}"
+small_text = "{{if .Paused}}Paused{{else}}Playing{{end}}"
+
+[[templates.episode.buttons]]
+label = "IMDb"
+url = "{{with provider . \"imdb\"}}https://www.imdb.com/title/{{.}}/{{end}}"
+
+[templates.movie]
+activity_type = "watching"
+status_display = "details"
+details = "{{.Name}}"
+details_url = ""
+state = "{{with .Year}}{{.}}{{end}}{{if and .Year .Genres}} · {{end}}{{join (limit .Genres 3) \", \"}}"
+state_url = ""
+large_text = "{{.Name}}{{with .Year}} ({{.}}){{end}}"
+small_text = "{{if .Paused}}Paused{{else}}Playing{{end}}"
+
+[[templates.movie.buttons]]
+label = "IMDb"
+url = "{{with provider . \"imdb\"}}https://www.imdb.com/title/{{.}}/{{end}}"
+
+[[templates.movie.buttons]]
+label = "TMDB"
+url = "{{with provider . \"tmdb\"}}https://www.themoviedb.org/movie/{{.}}{{end}}"
+
+[templates.audio]
+activity_type = "listening"
+status_display = "state"
+details = "{{.Name}}"
+details_url = ""
+state = "{{default .Artist \"Unknown artist\"}}"
+state_url = ""
+large_text = "{{default .Album .Name}}"
+small_text = "{{if .Paused}}Paused{{else}}Playing{{end}}"
+buttons = []
+
+[templates.musicvideo]
+activity_type = "watching"
+status_display = "details"
+details = "{{.Name}}"
+details_url = ""
+state = "{{.Artist}}"
+state_url = ""
+large_text = "{{.Name}}"
+small_text = "{{if .Paused}}Paused{{else}}Playing{{end}}"
+buttons = []
+
+[templates.livetv]
+activity_type = "watching"
+status_display = "details"
+details = "{{.Name}}"
+details_url = ""
+state = "Live TV"
+state_url = ""
+large_text = "{{.Name}}"
+small_text = "Live"
+buttons = []
+
+[templates.other]
+activity_type = "watching"
+status_display = "details"
+details = "{{.Name}}"
+details_url = ""
+state = "{{with .Year}}{{.}}{{end}}"
+state_url = ""
+large_text = "{{.Name}}"
+small_text = "{{if .Paused}}Paused{{else}}Playing{{end}}"
+buttons = []
